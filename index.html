@@ -49,7 +49,7 @@
 
       #unity-logo {
         image-rendering: pixelated;
-        width: 256px; /* adjust as needed */
+        width: 256px;
         height: auto;
         margin-bottom: 20px;
       }
@@ -108,9 +108,9 @@
         var div = document.createElement("div");
         div.innerHTML = msg;
         warningBanner.appendChild(div);
-        if (type == "error") div.style = "background: red; padding: 10px;";
+        if (type === "error") div.style = "background: red; padding: 10px;";
         else {
-          if (type == "warning") div.style = "background: yellow; padding: 10px;";
+          if (type === "warning") div.style = "background: yellow; padding: 10px;";
           setTimeout(function () {
             warningBanner.removeChild(div);
             updateBannerVisibility();
@@ -123,21 +123,21 @@
       var loaderUrl = buildUrl + "/WEB.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/WEB.data.gz",
-        frameworkUrl: buildUrl + "/WEB.framework.js.gz",
-        codeUrl: buildUrl + "/WEB.wasm.gz",
+        dataUrl: buildUrl + "/WEB.data",
+        frameworkUrl: buildUrl + "/WEB.framework.js",
+        codeUrl: buildUrl + "/WEB.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Blayms",
         productName: "CubemapHelper",
         productVersion: "0.1",
-        showBanner: false,
-
+        showBanner: unityShowBanner,
       };
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         var meta = document.createElement("meta");
         meta.name = "viewport";
-        meta.content = "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes";
+        meta.content =
+          "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes";
         document.getElementsByTagName("head")[0].appendChild(meta);
       }
 
@@ -148,11 +148,13 @@
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
-        }).then((unityInstance) => {
-          loadingBar.style.display = "none";
-        }).catch((message) => {
-          alert(message);
-        });
+        })
+          .then((unityInstance) => {
+            loadingBar.style.display = "none";
+          })
+          .catch((message) => {
+            alert(message);
+          });
       };
       document.body.appendChild(script);
     </script>
@@ -160,13 +162,14 @@
     <footer>
       <p>
         Cubemap Helper by Blayms |
-        <a href="https://github.com/blayms/cubemap-helper" target="_blank">Source Code</a> |
+        <a href="https://github.com/Blayms" target="_blank">Source Code</a> |
         <a href="https://blayms.github.io/about-me/" target="_blank">About Me</a> |
         <a href="https://www.youtube.com/@Blayms">YouTube</a>
       </p>
     </footer>
 
 <script>
+  // Block right-click context menu globally
   window.addEventListener("contextmenu", function (e) {
     e.preventDefault();
   });

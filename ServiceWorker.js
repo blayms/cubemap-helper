@@ -1,9 +1,9 @@
 const cacheName = "Blayms-CubemapHelper-0.1";
 const contentToCache = [
     "Build/WEB.loader.js",
-    "Build/WEB.framework.js.gz",
-    "Build/WEB.data.gz",
-    "Build/WEB.wasm.gz",
+    "Build/WEB.framework.js",
+    "Build/WEB.data",
+    "Build/WEB.wasm",
     "TemplateData/style.css"
 
 ];
