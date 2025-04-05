@@ -76,17 +76,21 @@
       }
     </style>
   </head>
-  <body>
-    <div id="unity-container">
-      <canvas id="unity-canvas" width="800" height="600" tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        <img id="unity-logo" src="TemplateData/unity-logo-dark.png" alt="Unity Logo" />
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
-        </div>
+<body>
+  <div style="color: gray; font-size: 0.9em; font-family: sans-serif; text-align: center; padding: 0.5em;">
+    If it fails to load, hit CTRL + F5
+  </div>
+
+  <div id="unity-container">
+    <canvas id="unity-canvas" width="800" height="600" tabindex="-1"></canvas>
+    <div id="unity-loading-bar">
+      <img id="unity-logo" src="TemplateData/unity-logo-dark.png" alt="Unity Logo" />
+      <div id="unity-progress-bar-empty">
+        <div id="unity-progress-bar-full"></div>
       </div>
-      <div id="unity-warning"></div>
     </div>
+    <div id="unity-warning"></div>
+  </div>
 
     <script>
       window.addEventListener("load", function () {
